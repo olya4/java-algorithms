@@ -1,0 +1,58 @@
+3. Определить сложность следующих алгоритмов. Сколько произойдет итераций?
+
+a)      int n = 10000;
+        List<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < n; j *= 2) {
+                arrayList.add(i * j);
+            }
+        }
+
+O(n*log(n)) квазилинейный рост
+
+b)      int n = 10000;
+        List<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i < n; i += 2) {
+            for (int j = i; j < n; j++) {
+                arrayList.add(i * j);
+            }
+        }
+
+O(n^2) полиномиальный рост
+
+с)      int n = 10000;
+        List<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i < n; i ++) {
+            for (int j = 0; j < n; j++) {
+                arrayList.add(i * j);
+                n--;
+            }
+        }
+
+O(n^3) полиномиальный рост
+
+d)     factorial(BigInteger.valueOf(10000))
+
+public static BigInteger factorial(BigInteger n) {
+    if (n.equals(BigInteger.ONE)) {
+        return n;
+    }
+    return n.multiply(factorial(n.subtract(BigInteger.valueOf(1))));
+}
+
+O(2^n) экспоненциальный рост
+
+e)     fib(BigInteger.valueOf(50));
+
+public static BigInteger fib(BigInteger n) {
+    if (n.equals(BigInteger.ONE)) {
+        return BigInteger.ZERO;
+    }
+    if (n.equals(BigInteger.TWO)) {
+        return BigInteger.ONE;
+    }
+    return fib(n.subtract(BigInteger.ONE)).add(fib(n.subtract(BigInteger.TWO)));
+}
+
+O(2^n) экспоненциальный рост
+
